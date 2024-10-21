@@ -18,6 +18,11 @@ return {
       position = 'right',
     },
     filesystem = {
+      filtered_items = {
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        visible = true,
+      },
       window = {
         mappings = {
           ['<C-n>'] = 'close_window',
