@@ -22,9 +22,12 @@ return {
 			local mason_lspconfig = require("mason-lspconfig")
 			mason_lspconfig.setup({
 				ensure_installed = {
-					"lua_ls",
 					"ts_ls",
+					"html",
 					"cssls",
+					"graphql",
+					"emmet_ls",
+					"lua_ls",
 				},
 			})
 		end,
@@ -52,8 +55,7 @@ return {
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 				callback = function(ev)
-					-- Buffer local mappings.
-					-- See `:help vim.lsp.*` for documentation on any of the below functions
+					-- Buffer local mappings. See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = ev.buf, silent = true }
 
 					-- set keybinds
@@ -104,6 +106,20 @@ return {
 				function(server_name)
 					lspconfig[server_name].setup({
 						capabilities = capabilities,
+					})
+				end,
+				["emmet_ls"] = function()
+					-- configure emmet language server
+					lspconfig["emmet_ls"].setup({
+						capabilities = capabilities,
+						filetypes = { "html", "typescriptreact", "javascriptreact", "css" },
+					})
+				end,
+				["graphql"] = function()
+					-- configure graphql language server
+					lspconfig["graphql"].setup({
+						capabilities = capabilities,
+						filetypes = { "graphql", "gql", "typescriptreact", "javascriptreact" },
 					})
 				end,
 				["lua_ls"] = function()
