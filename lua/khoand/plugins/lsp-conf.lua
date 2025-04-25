@@ -18,6 +18,12 @@ return {
 				},
 			})
 
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					{ "eslint_d", version = "13.1.2" }, -- this is the important line
+				},
+			})
+
 			-- Mason Lsp Config
 			local mason_lspconfig = require("mason-lspconfig")
 			mason_lspconfig.setup({
