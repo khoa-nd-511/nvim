@@ -12,13 +12,14 @@ return {
       local fg_dark = "#B4D0E9"
       local fg_gutter = "#627E97"
       local border = "#547998"
+      -- local bg_float = "#0c2030"
 
       require("tokyonight").setup({
         style = "night",
         on_colors = function(colors)
           colors.bg = bg
           colors.bg_dark = bg_dark
-          colors.bg_float = bg_dark
+          -- colors.bg_float = bg_float
           colors.bg_highlight = bg_highlight
           colors.bg_popup = bg_dark
           colors.bg_search = bg_search
