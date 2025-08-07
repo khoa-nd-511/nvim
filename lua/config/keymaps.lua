@@ -4,18 +4,8 @@ vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
 local opts = { noremap = true, silent = true }
 
----------------------
--- General Keymaps -------------------
-
--- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
-
 -- clear search highlights
 keymap.set("n", "<leader>cl", ":nohl<CR>", { desc = "Clear search highlights" })
-
--- increment/decrement numbers
-keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
-keymap.set("n", "<leader>-", "<C-x>", opts) -- decrement
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", opts)         -- split window vertically
@@ -44,3 +34,10 @@ keymap.set("v", "p", '"_dP', opts)
 keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
 keymap.set('n', '<leader>w', ':write<CR>')
 keymap.set('n', '<leader>q', ':quitall<CR>')
+
+keymap.set('n', '<leader>e', ":Oil --float<CR>")
+keymap.set('n', '<leader>sf', ":Pick files<CR>")
+keymap.set('n', '<leader>sg', ":Pick live_grep<CR>")
+keymap.set('n', '<leader>sh', ":Pick help<CR>")
+
+keymap.set('n', '<leader>lf', vim.lsp.buf.format)
