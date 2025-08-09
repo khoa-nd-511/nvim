@@ -48,7 +48,7 @@ map('n', '<leader>sh', ":Pick help<CR>")
 map('n', '<leader>f', vim.lsp.buf.format)
 map("n", '<leader>rn', vim.lsp.buf.rename)
 map("n", '<leader>ca', vim.lsp.buf.code_action)
-map("n", 'gd', vim.lsp.buf.implementation)
+map("n", 'gd', vim.lsp.buf.definition)
 map("n", 'gr', vim.lsp.buf.references)
 
 -- move line(s)
@@ -60,11 +60,11 @@ map('v', '<A-k>', ":m'<-2<CR>gv", opts)
 -- map("n", "<leader>lg", ":LazyGit<CR>")
 
 -- tmux
-map('n', '<S-h>', 'TmuxNavigateLeft<CR>', opts)
-map('n', '<S-j>', 'TmuxNavigateDown<CR>', opts)
-map('n', '<S-k>', 'TmuxNavigateUp<CR>', opts)
-map('n', '<S-l>', 'TmuxNavigateRight<CR>', opts)
-map('n', '<S-\\>', 'TmuxNavigatePrevious<CR>', opts)
+map('n', '<C-h>', 'TmuxNavigateLeft<CR>', opts)
+map('n', '<C-j>', 'TmuxNavigateDown<CR>', opts)
+map('n', '<C-k>', 'TmuxNavigateUp<CR>', opts)
+map('n', '<C-l>', 'TmuxNavigateRight<CR>', opts)
+map('n', '<C-\\>', 'TmuxNavigatePrevious<CR>', opts)
 
 
 map('n', '<leader>lg', ':LazyGit<CR>', opts)
