@@ -8,11 +8,17 @@ vim.pack.add({
   { src = 'https://github.com/christoomey/vim-tmux-navigator' },
   { src = 'https://github.com/windwp/nvim-autopairs' },
   { src = 'https://github.com/lewis6991/gitsigns.nvim' },
+  { src = 'https://github.com/akinsho/bufferline.nvim' },
 })
 
 require 'dressing'.setup {}
-
 require 'fidget'.setup {}
+require 'nvim-autopairs'.setup {}
+require 'bufferline'.setup {
+  options = {
+    separator_style = 'slant'
+  }
+}
 
 require 'oil'.setup {
   view_options = {
@@ -26,8 +32,6 @@ require 'mini.pick'.setup {
     move_down = '<C-j>',
   }
 }
-
-require 'nvim-autopairs'.setup {}
 
 require 'gitsigns'.setup {
   on_attach = function(bufnr)

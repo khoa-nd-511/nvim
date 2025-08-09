@@ -68,3 +68,7 @@ map('n', '<C-\\>', 'TmuxNavigatePrevious<CR>', opts)
 
 
 map('n', '<leader>lg', ':LazyGit<CR>', opts)
+
+map('n', 'H', '<cmd>BufferLineCyclePrev<CR>')
+map('n', 'L', '<cmd>BufferLineCycleNext<CR>')
+map('n', '<leader>bw', '<cmd>BufferLineCloseOthers<CR>')
