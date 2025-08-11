@@ -41,7 +41,7 @@ map('n', '<leader>b', ':e #<CR>')
 
 map('n', '<C-n>', ':Oil --float<CR>')
 map('n', '<leader>sf', ':Pick files<CR>')
-map('n', '<leader>sg', ':Pick live_grep<CR>')
+map('n', '<leader>sg', ':Pick grep_live<CR>')
 map('n', '<leader>sh', ':Pick help<CR>')
 
 -- native lsp commands
