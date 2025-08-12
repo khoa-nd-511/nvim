@@ -1,7 +1,7 @@
-require('config.autocmds')
-require('config.keymaps')
-require('config.options')
-require('config.lsp')
+require("config.autocmds")
+require("config.keymaps")
+require("config.options")
+require("config.lsp")
 
-require('plugins.ultilities')
-require('plugins.treesitter')
+require("plugins.ultilities")
+require("plugins.treesitter")
