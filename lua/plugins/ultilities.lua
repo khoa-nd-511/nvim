@@ -12,6 +12,7 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mfussenegger/nvim-lint" },
+	{ src = "https://github.com/github/copilot.vim" },
 })
 
 require("dressing").setup({})
