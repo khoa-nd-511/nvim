@@ -28,6 +28,9 @@ require("oil").setup({
 	view_options = {
 		show_hidden = true,
 	},
+	keymaps = {
+		["<C-n>"] = { "actions.close", mode = "n" },
+	},
 })
 
 require("mini.pick").setup({
