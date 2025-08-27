@@ -3,5 +3,4 @@ require("config.keymaps")
 require("config.options")
 require("config.lsp")
 
-require("plugins.ultilities")
-require("plugins.treesitter")
+require("plugins.all")

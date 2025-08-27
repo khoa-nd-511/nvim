@@ -13,6 +13,8 @@ vim.pack.add({
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/mfussenegger/nvim-lint" },
 	{ src = "https://github.com/github/copilot.vim" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
 require("dressing").setup({})
@@ -27,6 +29,10 @@ require("bufferline").setup({
 require("oil").setup({
 	view_options = {
 		show_hidden = true,
+	},
+	float = {
+		max_width = 0.5,
+		preview_split = "left",
 	},
 	keymaps = {
 		["<C-n>"] = { "actions.close", mode = "n" },
@@ -59,6 +65,15 @@ require("gitsigns").setup({
 			gs.blame({ full = true })
 		end)
 	end,
+})
+
+---@diagnostic disable-next-line: missing-fields
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"typescript",
+		"javascript",
+	},
+	highlight = { enable = true },
 })
 
 require("mason").setup({})
@@ -118,4 +133,5 @@ end, { desc = "Format file or range (in visual mode)" })
 
 -- colors
 vim.cmd("colorscheme tokyonight-night")
-vim.cmd(":hi statusline guibg=NONE")
+vim.cmd(":hi statusline guibg=#2a9baf")
+vim.cmd(":hi statusline guifg=#2b0000")
