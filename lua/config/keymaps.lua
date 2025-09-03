@@ -8,9 +8,9 @@ local opts = { noremap = true, silent = true }
 map("n", "<leader>cl", ":nohl<CR>", opts)
 
 -- window management
-map("n", "<leader>sv", "<C-w>v", opts) -- split window vertically
-map("n", "<leader>sh", "<C-w>s", opts) -- split window horizontally
-map("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
+map("n", "<leader>sv", "<C-w>v", opts)         -- split window vertically
+map("n", "<leader>sh", "<C-w>s", opts)         -- split window horizontally
+map("n", "<leader>se", "<C-w>=", opts)         -- make split windows equal width & height
 map("n", "<leader>sx", "<cmd>close<CR>", opts) -- close current split window
 
 -- delete single character without copying into register
@@ -33,8 +33,8 @@ map("v", "p", '"_dP', opts)
 
 map("n", "<leader>o", ":update<CR> :source<CR>")
 map("n", "<leader>w", function()
-	vim.lsp.buf.format()
-	vim.cmd(":wa")
+  vim.lsp.buf.format()
+  vim.cmd(":wa")
 end)
 map("n", "<leader>q", ":quitall<CR>")
 map("n", "<leader>b", ":e #<CR>")
@@ -71,3 +71,10 @@ map("n", "<leader>lg", ":LazyGit<CR>", opts)
 map("n", "H", "<cmd>BufferLineCyclePrev<CR>")
 map("n", "L", "<cmd>BufferLineCycleNext<CR>")
 map("n", "<leader>bw", "<cmd>BufferLineCloseOthers<CR>")
+
+map("n", "<leader>sf", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+map("n", "<leader>ss", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
+map("n", "<leader>sg", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+map("n", "<leader>sc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+map("n", "<leader>sr", "<cmd>Telescope resume<cr>", { desc = "Resume searches" })
+map("n", "<leader>sb", "<cmd>Telescope buffers<cr>", { desc = "Find in buffer" })
