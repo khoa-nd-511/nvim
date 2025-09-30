@@ -13,7 +13,7 @@ vim.pack.add({
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/mfussenegger/nvim-lint" },
-  { src = "https://github.com/github/copilot.vim" },
+  -- { src = "https://github.com/github/copilot.vim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
