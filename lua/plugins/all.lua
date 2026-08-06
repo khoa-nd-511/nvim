@@ -85,13 +85,17 @@ require("gitsigns").setup({
   end,
 })
 
----@diagnostic disable-next-line: missing-fields
-require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "typescript",
-    "javascript",
-  },
-  highlight = { enable = true },
+require("nvim-treesitter").install({
+  "typescript",
+  "javascript",
+  "python",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "typescript", "javascript", "python" },
+  callback = function()
+    vim.treesitter.start()
+  end,
 })
 
 require("mason").setup({})
@@ -103,6 +107,7 @@ lint.linters_by_ft = {
   typescript = { "eslint_d" },
   javascriptreact = { "eslint_d" },
   typescriptreact = { "eslint_d" },
+  python = { "ruff" },
 }
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -134,6 +139,7 @@ conform.setup({
     markdown = { "prettierd" },
     graphql = { "prettierd" },
     lua = { "stylua" },
+    python = { "ruff_fix", "ruff_format" },
   },
   format_on_save = {
     lsp_fallback = true,

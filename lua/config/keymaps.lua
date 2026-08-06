@@ -42,7 +42,7 @@ map("n", "<leader>b", ":e #<CR>")
 map("n", "<C-n>", ":Oil --float<CR>")
 map("n", "<leader>sf", ":Pick files<CR>")
 map("n", "<leader>sg", ":Pick grep_live<CR>")
-map("n", "<leader>sh", ":Pick help<CR>")
+-- map("n", "<leader>sh", ":Pick help<CR>")
 
 -- native lsp commands
 -- map('n', '<leader>f', vim.lsp.buf.format)
@@ -67,6 +67,8 @@ map("n", "<C-l>", "TmuxNavigateRight<CR>", opts)
 map("n", "<C-\\>", "TmuxNavigatePrevious<CR>", opts)
 
 map("n", "<leader>lg", ":LazyGit<CR>", opts)
+
+map({ "n", "t" }, "<esc><esc>", "<C-\\><C-n>", opts)
 
 map("n", "H", "<cmd>BufferLineCyclePrev<CR>")
 map("n", "L", "<cmd>BufferLineCycleNext<CR>")
