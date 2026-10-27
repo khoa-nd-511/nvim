@@ -25,6 +25,7 @@ local actions = require("telescope.actions")
 telescope.setup({
   defaults = {
     path_display = { "smart" },
+    -- winblend = 0, -- opaque so background text doesn't bleed through
     mappings = {
       i = {
         ["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -116,7 +117,17 @@ local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
   group = lint_augroup,
   callback = function()
-    lint.try_lint()
+    local names = vim.tbl_filter(function(name)
+      local linter = lint.linters[name]
+      local cmd = type(linter) == "table" and linter.cmd or name
+      if type(cmd) == "function" then
+        cmd = cmd()
+      end
+      return vim.fn.executable(cmd) == 1
+    end, lint.linters_by_ft[vim.bo.filetype] or {})
+    if #names > 0 then
+      lint.try_lint(names)
+    end
   end,
 })
 
@@ -157,6 +168,10 @@ vim.keymap.set({ "n", "v" }, "<leader>f", function()
 end, { desc = "Format file or range (in visual mode)" })
 
 -- colors
+require("tokyonight").setup({
+  transparent = true,
+  -- styles = { sidebars = "transparent", floats = "transparent" },
+})
 vim.cmd("colorscheme tokyonight-night")
 vim.cmd(":hi statusline guibg=#2a9baf")
 vim.cmd(":hi statusline guifg=#2b0000")
